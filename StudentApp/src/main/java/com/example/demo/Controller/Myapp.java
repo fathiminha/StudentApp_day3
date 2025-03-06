@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.model.*; 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 @RequestMapping("/app")
 public class Myapp {
 
-    List<Student> students = new ArrayList<>(); // Declare list outside the method
+    List<Student> students = new ArrayList<>(); 
 
     public Myapp() {
         Student Bob = new Student("2020ict01", "Bob Merly", 23, "IT", 3.2);
@@ -24,8 +25,19 @@ public class Myapp {
         students.add(Sri);
     }
 
-    @GetMapping("/Student")
+    @GetMapping("/Students")
     public List<Student> getStudent() {
         return students;
+    }
+    
+    // Find a student from the list by regNo
+    @GetMapping("/Student/{id}")
+    public Student getStudent(@PathVariable("id") String regNo) {
+    	for(Student student : students) {
+    		if(student.getRegNo().equals(regNo)) {
+    			return student;
+    		}
+    	}
+    	return null;
     }
 }
