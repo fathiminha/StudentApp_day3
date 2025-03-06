@@ -52,4 +52,13 @@ public class Myapp {
     	}
     	return filteredStudent;
     }
+    // Sort the students by their gpa
+
+    @GetMapping("/Student/gpa")
+    public List<Student> getStudentsGpa(){
+    	List<Student> sortedStudents = new ArrayList<>(students);
+    	sortedStudents.sort((s1,s2)-> Double.compare(s2.getGpa(), s1.getGpa()));
+    	return sortedStudents;
+    }
+    
 }
