@@ -40,4 +40,16 @@ public class Myapp {
     	}
     	return null;
     }
+    
+    //find the student whose age is between 20 and 23
+    @GetMapping("/Student/age-range")
+    public List<Student> getStudentByAgeRange(){
+    	List<Student> filteredStudent = new ArrayList<>();
+    	for(Student student: students) {
+    		if(student.getAge() >= 20 && student.getAge() <= 23) {
+    			filteredStudent.add(student);
+    		}
+    	}
+    	return filteredStudent;
+    }
 }
