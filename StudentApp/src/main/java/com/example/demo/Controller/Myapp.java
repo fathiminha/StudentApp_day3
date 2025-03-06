@@ -1,9 +1,12 @@
 package com.example.demo.Controller;
 
-import com.example.demo.model.*; 
+import com.example.demo.model.*;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -69,5 +72,30 @@ public class Myapp {
     public String addStudent(@RequestBody Student student) {
     	students.add(student);
     	return "Student added successfully";
+    }
+    
+    //READ
+    @GetMapping
+    public List<Student> getAllStudents(){
+    	return students;
+    }
+ // ✏️ UPDATE
+    @PutMapping("/{regNo}")
+    public String updateStudent(@PathVariable String regNo, @RequestBody Student updatedStudent) {
+        for (int i = 0; i < students.size(); i++) {
+            Student s = students.get(i);
+            if (s.getRegNo().equalsIgnoreCase(regNo)) {
+                students.set(i, updatedStudent);
+                return "Student updated successfully";
+            }
+        }
+        return "Student not found";
+    }
+
+    // 🗑 DELETE
+    @DeleteMapping("/{regNo}")
+    public String deleteStudent(@PathVariable String regNo) {
+        boolean removed = students.removeIf(s -> s.getRegNo().equalsIgnoreCase(regNo));
+        return removed ? "Student deleted successfully" : "Student not found";
     }
 }
