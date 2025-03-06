@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+D:\3rd YEAR\2nd Sem\E_commerce\Dayy3\.metadata\.plugins\org.eclipse.jdt.core
+3909233068.index
+1865797976.index
+4284630346.index
