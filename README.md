@@ -14,8 +14,19 @@ Sort the students by their GPA
 find the students whose age is between 20 and 23
 ![age](https://github.com/user-attachments/assets/0db44b71-a1e7-4bea-98f6-a67b8686d101)
 
-Add a student
+CRUD Operation
+CREATE a student
 ![add](https://github.com/user-attachments/assets/e757d0ff-d436-4e5c-8743-b692354e8764)
+
+READ all students
+![re](https://github.com/user-attachments/assets/fdca6178-538e-4427-a5ec-5ff5d98cbac0)
+
+UPDATE a student
+![update](https://github.com/user-attachments/assets/560c7b5e-8227-4af7-a9e7-d7b952cd9223)
+
+
+DELETE a student
+![de](https://github.com/user-attachments/assets/ac4718e8-42ec-473f-8caf-cd8f9a8127a9)
 
 
 
